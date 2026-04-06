@@ -44,12 +44,22 @@ npm install
 npm run dev
 ```
 
+## Environments
+
+| Environment | URL | Branch |
+|-------------|-----|--------|
+| Production  | https://outreach-ai-demo.vercel.app | `main` |
+| Staging     | https://staging-outreach-ai-demo.vercel.app | `staging` |
+
 ## Deploying
 
 ```bash
-make staging   # push to staging branch → Vercel preview deployment
-make prod      # merge staging → main → Vercel production deployment
+make staging   # push current branch to staging → updates staging URL above
+make preview   # push current branch → get a one-off Vercel preview URL
+make pr        # create a PR from current branch to main (founder approval step)
 ```
+
+Merging a PR to `main` auto-deploys to production.
 
 ## Database
 
@@ -57,13 +67,24 @@ Schema and seed data are in `supabase/`.
 Paste `schema.sql` then `seed.sql` directly into the Supabase SQL editor to set up.
 Or run `make seed` if you have `SUPABASE_DB_URL` set locally.
 
-## Adding a feature (demo workflow)
+### Migrations
 
-1. Create a feature branch: `git checkout -b feature/your-feature`
-2. Make changes, test locally with `make dev`
-3. Push: `git push origin feature/your-feature`
-4. Deploy preview: `make staging`
-5. When approved: `make prod`
+When a feature requires a DB schema change:
+1. Create a new numbered file in `supabase/migrations/` — e.g. `002_add_my_column.sql`
+2. Write the change as idempotent SQL (use `IF NOT EXISTS`, `IF EXISTS`, etc.)
+3. Include the migration file in the PR — it will appear in the diff
+4. On merge to `main`, the GitHub Action `.github/workflows/db-migrate.yml` applies it automatically
+
+**Never modify existing migration files.** Always create a new one.
+**Never apply migrations manually** unless doing one-time setup — let the GitHub Action handle it.
+
+## Adding a feature (founder workflow)
+
+1. Describe the feature in v0 → it builds on a new branch automatically
+2. Ask Claude Code to check integration: *"Review the v0 changes on branch [name]. Check Supabase queries, types, and nothing is broken."*
+3. Run `make staging` → test at https://staging-outreach-ai-demo.vercel.app
+4. When happy → `make pr` or click "Create PR" in v0
+5. Review the PR description → click Merge → production auto-deploys
 
 ## Claude API wiring
 

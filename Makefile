@@ -1,4 +1,4 @@
-.PHONY: staging prod dev seed
+.PHONY: staging prod dev seed migrate
 
 # Push current branch to staging → Vercel auto-deploys preview
 staging:
@@ -16,6 +16,12 @@ prod:
 # Run locally
 dev:
 	npm run dev
+
+# Migrations run automatically on merge via GitHub Actions (db-migrate.yml)
+# To apply a migration manually, paste it into the Supabase SQL Editor
+migrate:
+	@echo "Pending migrations in supabase/migrations/:"
+	@ls supabase/migrations/*.sql
 
 # Reset and re-seed the database (requires SUPABASE_DB_URL env var)
 seed:

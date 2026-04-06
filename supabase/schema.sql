@@ -3,14 +3,15 @@ create extension if not exists "uuid-ossp";
 
 -- Prospects
 create table if not exists prospects (
-  id            uuid primary key default uuid_generate_v4(),
-  name          text not null,
-  company       text not null,
-  linkedin_url  text,
-  status        text not null default 'pending'
-                  check (status in ('pending', 'replied', 'no_reply')),
-  last_contacted date,
-  created_at    timestamptz default now()
+  id               uuid primary key default uuid_generate_v4(),
+  name             text not null,
+  company          text not null,
+  linkedin_url     text,
+  status           text not null default 'pending'
+                     check (status in ('pending', 'replied', 'no_reply')),
+  last_contacted   date,
+  engagement_score integer not null default 0,
+  created_at       timestamptz default now()
 );
 
 -- Messages
