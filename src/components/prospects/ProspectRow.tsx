@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Prospect } from "@/lib/types";
 import StatusBadge from "./StatusBadge";
+import NextActionBadge from "./NextActionBadge";
 
 export default function ProspectRow({ prospect }: { prospect: Prospect }) {
   return (
@@ -13,6 +14,9 @@ export default function ProspectRow({ prospect }: { prospect: Prospect }) {
       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">{prospect.company}</td>
       <td className="px-6 py-4 whitespace-nowrap">
         <StatusBadge status={prospect.status} />
+      </td>
+      <td className="px-6 py-4 whitespace-nowrap">
+        <NextActionBadge action={prospect.next_action} />
       </td>
       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
         {prospect.last_contacted ?? "—"}
