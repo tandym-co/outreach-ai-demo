@@ -3,6 +3,7 @@ import { Prospect } from "@/lib/types";
 import StatusBadge from "./StatusBadge";
 import NextActionBadge from "./NextActionBadge";
 import EngagementScore from "./EngagementScore";
+import PriorityBadge from "./PriorityBadge";
 
 export default function ProspectRow({ prospect }: { prospect: Prospect }) {
   return (
@@ -29,6 +30,9 @@ export default function ProspectRow({ prospect }: { prospect: Prospect }) {
       </td>
       <td className="px-6 py-4 whitespace-nowrap">
         <NextActionBadge action={prospect.next_action} />
+      </td>
+      <td className="px-6 py-4 whitespace-nowrap">
+        <PriorityBadge priority={prospect.priority} />
       </td>
       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-400">
         {prospect.last_contacted ?? "—"}
