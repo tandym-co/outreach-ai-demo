@@ -70,7 +70,7 @@ Or run `make seed` if you have `SUPABASE_DB_URL` set locally.
 ### Migrations
 
 When a feature requires a DB schema change:
-1. Create a new numbered file in `supabase/migrations/` — e.g. `002_add_my_column.sql`
+1. Create a new numbered file in `supabase/migrations/` — e.g. `003_add_my_column.sql`
 2. Write the change as idempotent SQL (use `IF NOT EXISTS`, `IF EXISTS`, etc.)
 3. Include the migration file in the PR — it will appear in the diff
 4. On merge to `main`, the GitHub Action `.github/workflows/db-migrate.yml` applies it automatically
@@ -84,6 +84,7 @@ When a feature requires a DB schema change:
 |--------|------|-------|
 | `engagement_score` | integer | Added in migration 001 |
 | `next_action` | text | Added in migration 002. Allowed values: `call`, `email`, `follow_up`. Nullable. |
+| `priority` | text | Added in migration 003. Allowed values: `high`, `medium`, `low`. Nullable. |
 
 ## Adding a feature (founder workflow)
 

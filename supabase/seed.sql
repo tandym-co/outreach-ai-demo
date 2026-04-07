@@ -4,17 +4,17 @@ truncate prospects restart identity cascade;
 delete from persona where id = 1;
 
 -- Prospects
-insert into prospects (id, name, company, linkedin_url, status, last_contacted, engagement_score) values
-  ('a1000000-0000-0000-0000-000000000001', 'Sarah Chen',    'Acme Corp',  'https://linkedin.com/in/sarah-chen',    'replied',   '2026-03-28', 70),
-  ('a1000000-0000-0000-0000-000000000002', 'James Park',    'Notion',     'https://linkedin.com/in/james-park',    'no_reply',  '2026-03-20',  0),
-  ('a1000000-0000-0000-0000-000000000003', 'Priya Nair',    'Stripe',     'https://linkedin.com/in/priya-nair',    'pending',   null,           0),
-  ('a1000000-0000-0000-0000-000000000004', 'Marco Rossi',   'Figma',      'https://linkedin.com/in/marco-rossi',   'replied',   '2026-03-30', 40),
-  ('a1000000-0000-0000-0000-000000000005', 'Alex Thompson', 'Linear',     'https://linkedin.com/in/alex-thompson', 'no_reply',  '2026-03-18',  0),
-  ('a1000000-0000-0000-0000-000000000006', 'Yuki Tanaka',   'Vercel',     'https://linkedin.com/in/yuki-tanaka',   'pending',   null,           0),
-  ('a1000000-0000-0000-0000-000000000007', 'Rachel Kim',    'Anthropic',  'https://linkedin.com/in/rachel-kim',    'replied',   '2026-04-01', 100),
-  ('a1000000-0000-0000-0000-000000000008', 'David Osei',    'Loom',       'https://linkedin.com/in/david-osei',    'no_reply',  '2026-03-15',  0),
-  ('a1000000-0000-0000-0000-000000000009', 'Maria Santos',  'Intercom',   'https://linkedin.com/in/maria-santos',  'pending',   null,           0),
-  ('a1000000-0000-0000-0000-000000000010', 'Tom Nguyen',    'HubSpot',    'https://linkedin.com/in/tom-nguyen',    'replied',   '2026-03-29', 70);
+insert into prospects (id, name, company, linkedin_url, status, last_contacted, engagement_score, priority) values
+  ('a1000000-0000-0000-0000-000000000001', 'Sarah Chen',    'Acme Corp',  'https://linkedin.com/in/sarah-chen',    'replied',   '2026-03-28', 70,  'high'),
+  ('a1000000-0000-0000-0000-000000000002', 'James Park',    'Notion',     'https://linkedin.com/in/james-park',    'no_reply',  '2026-03-20',  0,  'medium'),
+  ('a1000000-0000-0000-0000-000000000003', 'Priya Nair',    'Stripe',     'https://linkedin.com/in/priya-nair',    'pending',   null,           0,  'low'),
+  ('a1000000-0000-0000-0000-000000000004', 'Marco Rossi',   'Figma',      'https://linkedin.com/in/marco-rossi',   'replied',   '2026-03-30', 40,  'high'),
+  ('a1000000-0000-0000-0000-000000000005', 'Alex Thompson', 'Linear',     'https://linkedin.com/in/alex-thompson', 'no_reply',  '2026-03-18',  0,  'medium'),
+  ('a1000000-0000-0000-0000-000000000006', 'Yuki Tanaka',   'Vercel',     'https://linkedin.com/in/yuki-tanaka',   'pending',   null,           0,  'low'),
+  ('a1000000-0000-0000-0000-000000000007', 'Rachel Kim',    'Anthropic',  'https://linkedin.com/in/rachel-kim',    'replied',   '2026-04-01', 100, 'high'),
+  ('a1000000-0000-0000-0000-000000000008', 'David Osei',    'Loom',       'https://linkedin.com/in/david-osei',    'no_reply',  '2026-03-15',  0,  'medium'),
+  ('a1000000-0000-0000-0000-000000000009', 'Maria Santos',  'Intercom',   'https://linkedin.com/in/maria-santos',  'pending',   null,           0,  'low'),
+  ('a1000000-0000-0000-0000-000000000010', 'Tom Nguyen',    'HubSpot',    'https://linkedin.com/in/tom-nguyen',    'replied',   '2026-03-29', 70,  'high');
 
 -- Messages
 insert into messages (prospect_id, direction, body, sent_at) values
