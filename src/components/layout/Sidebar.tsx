@@ -45,9 +45,9 @@ export default function Sidebar() {
   const pathname = usePathname();
 
   return (
-    <aside className="w-60 shrink-0 flex flex-col h-full" style={{ backgroundColor: "#0A1628" }}>
+    <aside className="w-60 shrink-0 flex flex-col h-full" style={{ backgroundColor: "#000000" }}>
       {/* Logo */}
-      <div className="px-5 py-5 border-b" style={{ borderColor: "#1a2d4a" }}>
+      <div className="px-5 py-5 border-b" style={{ borderColor: "#222222" }}>
         <div className="flex items-center gap-2.5">
           <TandymLogo />
           <div>
@@ -98,11 +98,11 @@ export default function Sidebar() {
       </nav>
 
       {/* Footer */}
-      <div className="px-4 py-4 border-t" style={{ borderColor: "#1a2d4a" }}>
+      <div className="px-4 py-4 border-t" style={{ borderColor: "#222222" }}>
         <div className="flex items-center gap-2.5">
           <div
             className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold shrink-0"
-            style={{ background: "linear-gradient(135deg, #4DD9FF, #00F5A0)", color: "#0A1628" }}
+            style={{ background: "linear-gradient(135deg, #4DD9FF, #00F5A0)", color: "#000000" }}
           >
             N
           </div>
