@@ -4,6 +4,7 @@ export interface Prospect {
   company: string;
   linkedin_url: string | null;
   status: "pending" | "replied" | "no_reply";
+  priority: "high" | "medium" | "low";
   last_contacted: string | null;
   engagement_score: number;
   created_at: string;

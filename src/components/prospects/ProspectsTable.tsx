@@ -82,7 +82,7 @@ export default function ProspectsTable({ prospects }: { prospects: Prospect[] })
         <table className="min-w-full">
           <thead>
             <tr style={{ backgroundColor: "#F8FAFC" }}>
-              {["Name", "Company", "Status", "Engagement", "Next Action", "Last Contacted", "LinkedIn"].map((h) => (
+              {["Name", "Company", "Status", "Priority", "Engagement", "Next Action", "Last Contacted", "LinkedIn"].map((h) => (
                 <th key={h} className="px-6 py-3 text-left text-xs font-semibold text-gray-400 uppercase tracking-wider">
                   {h}
                 </th>

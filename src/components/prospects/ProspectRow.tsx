@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Prospect } from "@/lib/types";
 import StatusBadge from "./StatusBadge";
+import PriorityBadge from "./PriorityBadge";
 import NextActionBadge from "./NextActionBadge";
 import EngagementScore from "./EngagementScore";
 
@@ -23,6 +24,9 @@ export default function ProspectRow({ prospect }: { prospect: Prospect }) {
       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{prospect.company}</td>
       <td className="px-6 py-4 whitespace-nowrap">
         <StatusBadge status={prospect.status} />
+      </td>
+      <td className="px-6 py-4 whitespace-nowrap">
+        <PriorityBadge priority={prospect.priority} />
       </td>
       <td className="px-6 py-4 whitespace-nowrap">
         <EngagementScore score={prospect.engagement_score} />
