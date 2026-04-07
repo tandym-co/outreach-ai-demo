@@ -78,6 +78,13 @@ When a feature requires a DB schema change:
 **Never modify existing migration files.** Always create a new one.
 **Never apply migrations manually** unless doing one-time setup — let the GitHub Action handle it.
 
+### prospects table columns
+
+| Column | Type | Notes |
+|--------|------|-------|
+| `engagement_score` | integer | Added in migration 001 |
+| `next_action` | text | Added in migration 002. Allowed values: `call`, `email`, `follow_up`. Nullable. |
+
 ## Adding a feature (founder workflow)
 
 1. Describe the feature in v0 → it builds on a new branch automatically

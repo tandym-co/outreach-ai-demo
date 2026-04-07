@@ -7,7 +7,7 @@ export interface Prospect {
   last_contacted: string | null;
   engagement_score: number;
   created_at: string;
-  next_action?: "call" | "email" | "follow-up" | null;
+  next_action?: "call" | "email" | "follow_up" | null;
 }
 
 export interface Message {
