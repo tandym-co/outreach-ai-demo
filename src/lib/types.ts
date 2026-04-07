@@ -8,6 +8,7 @@ export interface Prospect {
   engagement_score: number;
   created_at: string;
   next_action?: "call" | "email" | "follow_up" | null;
+  priority: "high" | "medium" | "low" | null;
 }
 
 export interface Message {
